@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GTA 6 Spoiler Blocker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <img src="icons/icon32.png" alt="" width="24" height="24">
+    <h1>GTA 6 Spoiler Blocker</h1>
+    <label class="switch" title="Turn blocking on or off">
+      <input type="checkbox" id="enabled">
+      <span></span>
+    </label>
+  </header>
+
+  <p class="status" id="status">Open YouTube to start blocking.</p>
+
+  <section>
+    <h2>How to block</h2>
+    <div class="seg" role="radiogroup">
+      <label><input type="radio" name="mode" value="blur"> Blur</label>
+      <label><input type="radio" name="mode" value="hide"> Hide</label>
+    </div>
+    <label class="check"><input type="checkbox" id="guardWatch"> Pause and cover GTA 6 video pages</label>
+    <label class="check"><input type="checkbox" id="hideComments"> Also check comments</label>
+  </section>
+
+  <section>
+    <h2>Spoiler words</h2>
+    <p class="hint">One per line. "gta 6" also catches GTA6, gta-6 and #GTA6.</p>
+    <textarea id="keywords" rows="8" spellcheck="false"></textarea>
+    <div class="row">
+      <button type="button" id="reset" class="link">Reset to defaults</button>
+      <span id="saved" class="saved" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+:root {
+  --bg: #ffffff; --fg: #0f0f0f; --muted: #606060; --line: #e5e5e5; --field: #f2f2f2;
+  --accent: #e8457c; --seg: #f2f2f2; --seg-on: #0f0f0f; --seg-on-fg: #fff;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #212121; --fg: #f1f1f1; --muted: #aaaaaa; --line: #3a3a3a; --field: #181818;
+          --seg: #303030; --seg-on: #f1f1f1; --seg-on-fg: #0f0f0f; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; width: 320px; padding: 14px 16px 16px; background: var(--bg); color: var(--fg);
+       font: 13px/1.4 "Segoe UI", Roboto, Arial, sans-serif; }
+header { display: flex; align-items: center; gap: 10px; }
+header img { border-radius: 6px; }
+h1 { flex: 1; font-size: 15px; font-weight: 600; margin: 0; }
+h2 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; color: var(--muted); margin: 0 0 8px; }
+section { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 12px; }
+.status { margin: 10px 0 0; color: var(--muted); }
+.status strong { color: var(--fg); }
+
+.switch { position: relative; width: 36px; height: 20px; flex: none; cursor: pointer; }
+.switch input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.switch span { position: absolute; inset: 0; border-radius: 10px; background: var(--line); transition: background .15s; }
+.switch span::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%;
+                      background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.3); transition: transform .15s; }
+.switch input:checked + span { background: var(--accent); }
+.switch input:checked + span::after { transform: translateX(16px); }
+.switch input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.seg { display: flex; background: var(--seg); border-radius: 8px; padding: 3px; margin-bottom: 10px; }
+.seg label { flex: 1; text-align: center; padding: 6px 0; border-radius: 6px; cursor: pointer; font-weight: 500; }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg label:has(input:checked) { background: var(--seg-on); color: var(--seg-on-fg); }
+.seg label:has(input:focus-visible) { outline: 2px solid var(--accent); }
+
+.check { display: flex; gap: 8px; align-items: center; margin: 6px 0; cursor: pointer; }
+.check input { accent-color: var(--accent); margin: 0; }
+.hint { margin: 0 0 8px; color: var(--muted); font-size: 12px; }
+textarea { width: 100%; resize: vertical; background: var(--field); color: var(--fg); border: 1px solid var(--line);
+           border-radius: 8px; padding: 8px; font: 13px/1.5 Consolas, "Cascadia Mono", monospace; }
+textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+.row { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
+.link { background: none; border: 0; padding: 0; color: var(--muted); font: inherit; cursor: pointer; text-decoration: underline; }
+.link:hover { color: var(--fg); }
+.saved { color: var(--muted); font-size: 12px; }
+body.off section { opacity: .5; }

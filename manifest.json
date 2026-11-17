@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "GTA 6 Spoiler Blocker for YouTube",
+  "version": "1.0.0",
+  "description": "Blurs or hides GTA 6 videos, Shorts and comments on YouTube, and stops spoiler videos before they play.",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"],
+      "js": ["shared.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "GTA 6 Spoiler Blocker",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+}
